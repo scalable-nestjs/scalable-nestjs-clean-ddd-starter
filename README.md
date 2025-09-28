@@ -1,68 +1,83 @@
 # Scalable NestJS Clean DDD Starter
 
-[![GitHub stars](https://img.shields.io/github/stars/scalable-nestjs/scalable-nestjs-clean-ddd-starter?style=social)](https://github.com/scalable-nestjs/scalable-nestjs-clean-ddd-starter/stargazers)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Node.js Version](https://img.shields.io/badge/Node.js-%3E%3D18-brightgreen)](https://nodejs.org/)
+A starter template for building scalable applications with **NestJS**, following **Clean Architecture** and **Domain-Driven Design (DDD)** principles.
 
-A **scalable NestJS starter template** implementing **Clean Architecture** and **Domain-Driven Design (DDD)** principles. Perfect as a starting point for building robust, maintainable, and testable backend applications.
+This project provides a well-structured foundation to kickstart complex applications, ensuring clear separation of concerns, modularity, and maintainability.
 
 ---
 
-## Features
+## 📂 Project Structure
 
-* Modular **Clean Architecture** setup (Domain, Application, Infrastructure layers)
-* Example **Domain entity**, use case, and repository interface
-* TypeScript + NestJS best practices
-* Unit tests ready with **Jest**
-* Preconfigured **ESLint** and **Prettier**
-* Ready for CI/CD integration
-* Extensible to **microservices** or **event-driven architecture**
+```
+scalable-nestjs-clean-ddd-starter/
+├─ src/
+│  ├─ apps/                    # Applications (entry points)
+│  │  ├─ api/                  # API REST or GraphQL
+│  │  │   ├─ main.ts
+│  │  │   └─ api.module.ts
+│  │  ├─ worker/               # Background workers
+│  │  │   ├─ main.ts
+│  │  │   └─ worker.module.ts
+│  │  └─ event-handler/        # Event-driven handlers
+│  │      ├─ main.ts
+│  │      └─ event-handler.module.ts
+│  │
+│  ├─ modules/                 # Bounded Contexts
+│  │  ├─ user/                 # Example bounded context
+│  │  │   ├─ domain/           # Entities, Value Objects, Domain Services
+│  │  │   │   ├─ entities/
+│  │  │   │   └─ value-objects/
+│  │  │   ├─ application/      # Use cases, DTOs, services
+│  │  │   │   ├─ dtos/
+│  │  │   │   └─ use-cases/
+│  │  │   └─ infrastructure/   # Repositories, providers specific to this BC
+│  │  └─ order/                # Another bounded context
+│  │      ├─ domain/
+│  │      ├─ application/
+│  │      └─ infrastructure/
+│  │
+│  └─ shared/                  # Shared infrastructure & utilities
+│      ├─ infrastructure/      # DB, cache, logger, etc.
+│      └─ utils/               # Helpers, mappers, constants
+│
+├─ test/                       # Unit and integration tests
+├─ .gitignore
+├─ README.md
+├─ package.json
+├─ tsconfig.json
+└─ LICENSE
+```
 
 ---
 
-## Installation
+## 🚀 Features
+
+- NestJS modular architecture.
+- Clean Architecture layering (Domain, Application, Infrastructure).
+- Domain-Driven Design patterns.
+- Ready for multiple apps (API, workers, event handlers).
+- Shared utilities and infrastructure to avoid duplication.
+
+---
+
+## 🛠 Getting Started
 
 ```bash
-git clone git@github.com:scalable-nestjs/scalable-nestjs-clean-ddd-starter.git
-cd scalable-nestjs-clean-ddd-starter
+# Install dependencies
 npm install
-npm run start:dev
-```
 
-The application should be running at [http://localhost:3000](http://localhost:3000)
+# Run the API app
+tsx src/apps/api/main.ts
 
----
+# Run worker
+tsx src/apps/worker/main.ts
 
-## Project Structure
-
-```
-src/
-├─ domain/          # Entities, Value Objects, Domain Services
-├─ application/     # Use Cases, Application Services
-├─ infrastructure/  # Repositories, DB, External Integrations
-├─ main.ts          # Entry point
+# Run event handler
+tsx src/apps/event-handler/main.ts
 ```
 
 ---
 
-## Usage
+## 📜 License
 
-Add your own modules under `application` and `domain`. Use the provided repository and service patterns to extend functionality quickly.
-
----
-
-## Contributing
-
-Contributions are welcome! Please follow the **Clean Architecture** and **DDD principles** when adding new features.
-
-1. Fork the repo
-2. Create a branch (`feature/your-feature`)
-3. Commit your changes
-4. Push to the branch
-5. Create a pull request
-
----
-
-## License
-
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
