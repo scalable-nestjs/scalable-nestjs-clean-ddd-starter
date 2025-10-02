@@ -1,9 +1,9 @@
 import { AggregateRoot } from './aggregate-root';
+import { CryptoAsset } from './crypto-asset.entity';
 import { OrderStatus, OrderType } from '../enums';
 import { TradeOrderCancelledEvent, TradeOrderCreatedEvent, TradeOrderExecutedEvent } from '../events';
 import { CannotCancelOrderError, CannotExecuteOrderError } from '../exceptions';
 import { ClientIdVO, CryptoAmountVO, UniqueEntityIDVO } from '../value-objects';
-import { CryptoAsset } from './crypto-asset.entity';
 
 export type TradeOrderProps = {
   clientId: ClientIdVO;

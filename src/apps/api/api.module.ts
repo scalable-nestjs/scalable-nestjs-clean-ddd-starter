@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
 
+import { CryptoTradingInfrastructureModule } from '@crypto-trading/infrastructure';
+
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
 
 @Module({
-  imports: [],
+  imports: [CryptoTradingInfrastructureModule],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [],
 })
 export class ApiModule {}
